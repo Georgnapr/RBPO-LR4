@@ -1,0 +1,50 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  valgrind-analysis:
+    name: Valgrind Memory Check
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc valgrind
+
+      - name: Compile fixed program
+        run: |
+          mkdir -p build results
+          gcc -g -O0 -Wall -Wextra \
+            src/example1_fixed.c \
+            -o build/example1_fixed
+
+      - name: Run Valgrind tests
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for test in Hello HelloWorld123 Xtest; do
+            echo "=== Testing: $test ==="
+
+            printf '%s\n' "$test" |
+              valgrind --tool=memcheck \
+                --leak-check=full \
+                --track-origins=yes \
+                --error-exitcode=1 \
+                ./build/example1_fixed \
+                2>&1 | tee "results/${test}.txt"
+
+          done
+
+      - name: Upload Valgrind reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: valgrind-reports
+          path: results/*.txt
+          retention-days: 7
