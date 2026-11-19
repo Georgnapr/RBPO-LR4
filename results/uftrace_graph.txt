@@ -1,0 +1,28 @@
+# Function Call Graph for 'uftrace_demo' (session: aef8a766219ea6cc)
+========== FUNCTION CALL GRAPH ==========
+# TOTAL TIME   FUNCTION
+   40.357 ms : (1) uftrace_demo
+    0.200 us :  +-(1) __monstartup
+             :  | 
+    0.200 us :  +-(1) __cxa_atexit
+             :  | 
+   40.356 ms :  +-(1) main
+   30.100 us :     +-(2) puts
+             :     | 
+    0.600 us :     +-(1) srand
+             :     | 
+   20.247 ms :     +-(1) function_B
+   19.100 us :     |  +-(2) puts
+             :     |  | 
+   10.082 ms :     |  +-(1) heavy_computation
+   10.081 ms :     |  | (1) usleep
+   10.071 ms :     |  | (1) linux:schedule
+             :     |  | 
+   10.145 ms :     |  +-(1) function_A
+   10.143 ms :     |    (2) usleep
+   10.132 ms :     |    (2) linux:schedule
+             :     | 
+   20.077 ms :     +-(1) heavy_computation
+   20.077 ms :       (1) usleep
+   20.070 ms :       (1) linux:schedule
+

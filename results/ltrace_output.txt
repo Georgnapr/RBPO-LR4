@@ -1,0 +1,13 @@
+time(nil)                                                                                                                                          = 1795107726
+srand(1795107726)                                                                                                                                  = <void>
+puts("Complex program started.")                                                                                                                   = 25
+rand()                                                                                                                                             = 1177110826
+malloc(12)                                                                                                                                         = 0x5adc616d3420
+strncpy(0x5adc616d3420, "This is a l", 11)                                                                                                         = 0x5adc616d3420
+printf("Processing data: %s (length %d)\n"..., "This is a l", 11)                                                                                  = 41
+free(0x5adc616d3420)                                                                                                                               = <void>
+printf("Sleeping for 1 second after proc"...)                                                                                                      = 49
+sleep(1)                                                                                                                                           = 0
+puts("Program finished.")                                                                                                                          = 18
+exit(0 <no return ...>
++++ exited (status 0) +++

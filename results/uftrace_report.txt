@@ -1,0 +1,12 @@
+  Total time   Self time       Calls  Function
+  ==========  ==========  ==========  ====================
+   40.356 ms    1.100 us           1  main
+   40.302 ms   28.300 us           4  usleep
+   40.274 ms   40.274 ms           4  linux:schedule
+   30.159 ms    1.000 us           2  heavy_computation
+   20.247 ms    0.900 us           1  function_B
+   10.145 ms    1.400 us           1  function_A
+   49.200 us   49.200 us           4  puts
+    0.600 us    0.600 us           1  srand
+    0.200 us    0.200 us           1  __cxa_atexit
+    0.200 us    0.200 us           1  __monstartup

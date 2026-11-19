@@ -1,0 +1,5 @@
+started_at=2026-11-19T02:30:26.5446080+03:00
+command=wsl.exe -d Ubuntu --cd "C:\Users\Pepe\Desktop\ЛР4" --exec bash scripts/check_fixed.sh
+Build log: results/build.txt
+Memcheck log: results/valgrind_after.txt
+exit_code=0

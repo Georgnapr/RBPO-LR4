@@ -1,0 +1,95 @@
+project=/mnt/c/Users/Pepe/Desktop/ЛР4
+
+scenario=stdin_short
+stdin_line_bash_quoted=hello
+started_at=2026-11-19T02:30:26+03:00
+command= valgrind --tool=memcheck --leak-check=full --track-origins=yes --show-reachable=yes --errors-for-leak-kinds=all --error-exitcode=99 ./build/example1_fixed
+==5180== Memcheck, a memory error detector
+==5180== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==5180== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==5180== Command: ./build/example1_fixed
+==5180== 
+cs=532
+==5180== 
+==5180== HEAP SUMMARY:
+==5180==     in use at exit: 0 bytes in 0 blocks
+==5180==   total heap usage: 2 allocs, 2 frees, 8,192 bytes allocated
+==5180== 
+==5180== All heap blocks were freed -- no leaks are possible
+==5180== 
+==5180== For lists of detected and suppressed errors, rerun with: -s
+==5180== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+exit_code=0
+expected_exit_code=0
+verification=PASS
+
+scenario=stdin_empty
+stdin_line_bash_quoted=''
+started_at=2026-11-19T02:30:27+03:00
+command= valgrind --tool=memcheck --leak-check=full --track-origins=yes --show-reachable=yes --errors-for-leak-kinds=all --error-exitcode=99 ./build/example1_fixed
+==5186== Memcheck, a memory error detector
+==5186== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==5186== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==5186== Command: ./build/example1_fixed
+==5186== 
+cs=0
+==5186== 
+==5186== HEAP SUMMARY:
+==5186==     in use at exit: 0 bytes in 0 blocks
+==5186==   total heap usage: 2 allocs, 2 frees, 8,192 bytes allocated
+==5186== 
+==5186== All heap blocks were freed -- no leaks are possible
+==5186== 
+==5186== For lists of detected and suppressed errors, rerun with: -s
+==5186== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+exit_code=0
+expected_exit_code=0
+verification=PASS
+
+scenario=argument_text
+stdin_line_bash_quoted=''
+started_at=2026-11-19T02:30:27+03:00
+command= valgrind --tool=memcheck --leak-check=full --track-origins=yes --show-reachable=yes --errors-for-leak-kinds=all --error-exitcode=99 ./build/example1_fixed Example\ configuration\ text\ for\ regression
+==5192== Memcheck, a memory error detector
+==5192== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==5192== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==5192== Command: ./build/example1_fixed Example\ configuration\ text\ for\ regression
+==5192== 
+cs=4113
+==5192== 
+==5192== HEAP SUMMARY:
+==5192==     in use at exit: 0 bytes in 0 blocks
+==5192==   total heap usage: 2 allocs, 2 frees, 4,112 bytes allocated
+==5192== 
+==5192== All heap blocks were freed -- no leaks are possible
+==5192== 
+==5192== For lists of detected and suppressed errors, rerun with: -s
+==5192== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+exit_code=0
+expected_exit_code=0
+verification=PASS
+
+scenario=argument_initial
+stdin_line_bash_quoted=''
+started_at=2026-11-19T02:30:28+03:00
+command= valgrind --tool=memcheck --leak-check=full --track-origins=yes --show-reachable=yes --errors-for-leak-kinds=all --error-exitcode=99 ./build/example1_fixed X
+==5198== Memcheck, a memory error detector
+==5198== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==5198== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==5198== Command: ./build/example1_fixed X
+==5198== 
+Before free: A
+cs=88
+==5198== 
+==5198== HEAP SUMMARY:
+==5198==     in use at exit: 0 bytes in 0 blocks
+==5198==   total heap usage: 2 allocs, 2 frees, 4,104 bytes allocated
+==5198== 
+==5198== All heap blocks were freed -- no leaks are possible
+==5198== 
+==5198== For lists of detected and suppressed errors, rerun with: -s
+==5198== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+exit_code=0
+expected_exit_code=0
+verification=PASS
+

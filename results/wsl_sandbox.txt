@@ -1,0 +1,6 @@
+started_at=2026-11-19T02:30:23.1820025+03:00
+command=wsl.exe --list --verbose
+Отказано в доступе. 
+Код ошибки: Wsl/EnumerateDistros/Service/E_ACCESSDENIED
+Если эта ошибка была непредвиденной, попробуйте найти существующие проблемы или сообщить о новой проблеме по адресу https://github.com/microsoft/WSL/issues.
+exit_code=-1
